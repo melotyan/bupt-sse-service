@@ -9,7 +9,29 @@
 
        <context:annotation-config/>
 
-       <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"/>
+       <context:property-placeholder location="classpath:mybatis_config/mybatis.properties" />
+       <!--建立JNDI数据源-->
+       <bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
+              <property name="driver" value="${driver}"/>
+              <property name="url" value="${url}"/>
+              <property name="username" value="${username}"/>
+              <property name="password" value="${password}"/>
+              <property name="poolMaximumActiveConnections" value="${poolMaximumActiveConnections}"/>
+              <property name="poolMaximumIdleConnections" value="${poolMaximumIdleConnections}"/>
+              <property name="poolMaximumCheckoutTime" value="${poolMaximumCheckoutTime}"/>
+              <property name="poolTimeToWait" value="${poolTimeToWait}"/>
+              <property name="poolPingEnabled" value="${poolPingEnabled}"/>
+              <property name="poolPingQuery" value="${poolPingQuery}"/>
+              <property name="poolPingConnectionsNotUsedFor" value="${poolPingConnectionsNotUsedFor}"/>
+       </bean>
+       <!--<bean id="propertyConfigure"-->
+             <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+              <!--<property name="locations">-->
+                     <!--<list>-->
+                            <!--<value>classpath:mybatis_config/mybatis.properties</value>-->
+                     <!--</list>-->
+              <!--</property>-->
+       <!--</bean>-->
 
        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
               <property name="dataSource" ref="dataSource"/>
@@ -22,6 +44,7 @@
               </property>
        </bean>
 
+       <!-- 配置mybatis扫描器 -->
        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
               <property name="basePackage" value="cn.sse.bupt.repository.dao"/>
               <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
