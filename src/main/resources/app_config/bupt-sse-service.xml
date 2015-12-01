@@ -16,7 +16,7 @@
               <property name="mapperLocations">
                      <array>
                             <value>
-                                   classpath:cn/sse/bupt/repository
+                                   classpath:cn/sse/bupt/repository/dao/impl/*.xml
                             </value>
                      </array>
               </property>
