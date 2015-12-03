@@ -10,7 +10,7 @@
     <fileSets>
         <fileSet>
             <!--定义代码路径与输出路径的映射-->
-            <directory>${project.build.directory}/assembly/bin</directory>
+            <directory>${project.build.directory}/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <fileMode>0755</fileMode>
         </fileSet>
