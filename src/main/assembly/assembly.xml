@@ -10,6 +10,7 @@
     <fileSets>
         <fileSet>
             <!--定义代码路径与输出路径的映射-->
+            <!--${project.build.directory}是maven的内置变量，缺省为target目录-->
             <directory>${project.build.directory}/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <fileMode>0755</fileMode>
@@ -21,8 +22,8 @@
         </fileSet>
     </fileSets>
     <dependencySets>
+        <!--依赖配置-->
         <dependencySet>
-            <!--依赖配置-->
             <useProjectArtifact>true</useProjectArtifact>
             <outputDirectory>lib</outputDirectory>
             <unpack>false</unpack>

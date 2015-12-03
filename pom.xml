@@ -16,10 +16,13 @@
 
     <properties>
         <project.environment>dev</project.environment>
-        <build.version>${project.version}</build.version>
+        <!--<build.version>${project.version}-r${buildNumber}</build.version>-->
+        <!--<buildnumber.phase>validate</buildnumber.phase>-->
     </properties>
 
     <build>
+        <!--文件名<finalName>默认为${project.build.finalName}，即artifactId-version-->
+        <!--package阶段-->
         <defaultGoal>package</defaultGoal>
         <filters>
             <filter>src/main/filters/filter-${project.environment}.properties</filter>
@@ -31,26 +34,35 @@
             </resource>
             <resource>
                 <directory>src/main/assembly/conf</directory>
-                <filtering>true</filtering>
+                <filtering>true</filtering> <!--替换变量名-->
                 <includes>
                     <include>**/*.properties</include>
                     <include>**/*.xml</include>
                 </includes>
+                <!--${project.build.directory}是maven内置变量，缺省为target目录-->
                 <targetPath>${project.build.directory}/conf</targetPath>
             </resource>
+            <resource>
+                <directory>src/main/assembly/bin</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.sh</include>
+                    <include>**/*.bat</include>
+                </includes>
+                <targetPath>${project.build.directory}/bin</targetPath>
+            </resource>
         </resources>
-        <finalName>${project.artifactId}-${build.version}</finalName>
         <plugins>
             <plugin>
-                <!--打包用的插件-->
+               <!--打包用的插件-->
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
                     <!--文件路径-->
                     <descriptor>src/main/assembly/assembly.xml</descriptor>
-                    <descriptorRefs>
-                        <descriptorRef>bin</descriptorRef>
-                    </descriptorRefs>
+                    <!--<descriptorRefs>-->
+                        <!--<descriptorRef>bin</descriptorRef>-->
+                    <!--</descriptorRefs>-->
                 </configuration>
                 <executions>
                     <execution>
@@ -142,6 +154,17 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
