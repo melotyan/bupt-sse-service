@@ -23,7 +23,7 @@ public class UserServiceTest {
     @Test
     public void testInsert() {
         UserModel userModel = new UserModel();
-        userModel.setUsername("yanhao4");
+        userModel.setUsername("yanhao0");
         userModel.setNickname("严浩");
         userModel.setEmail("yanhao@126.com");
         userModel.setAddress("北邮");
