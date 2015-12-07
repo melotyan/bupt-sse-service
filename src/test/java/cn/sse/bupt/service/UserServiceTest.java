@@ -22,7 +22,15 @@ public class UserServiceTest {
 
     @Test
     public void testInsert() {
-        LOGGER.info("test log");
+        UserModel userModel = new UserModel();
+        userModel.setUsername("yanhao4");
+        userModel.setNickname("严浩");
+        userModel.setEmail("yanhao@126.com");
+        userModel.setAddress("北邮");
+        userModel.setPassword("1234545");
+        userModel.setPhone("123445");
+        userService.register(userModel);
+        LOGGER.info("test register:{}", userModel);
     }
 
 }
