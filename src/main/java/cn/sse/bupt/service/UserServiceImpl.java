@@ -1,5 +1,6 @@
 package cn.sse.bupt.service;
 
+import cn.sse.bupt.enums.AccountStatusEnum;
 import cn.sse.bupt.model.UserModel;
 import cn.sse.bupt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public int register(UserModel userModel) {
+    public long register(UserModel userModel) {
         return userRepository.insert(userModel);
     }
 
@@ -34,5 +35,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int logout(UserModel userModel) {
         return 0;
+    }
+
+    @Override
+    public int activeAccount(long uid) {
+        return userRepository.updateAccountStatus(uid, AccountStatusEnum.ACTIVITATED.getValue());
     }
 }

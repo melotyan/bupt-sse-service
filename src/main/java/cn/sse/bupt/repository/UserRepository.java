@@ -20,4 +20,8 @@ public class UserRepository {
     public UserModel findByUsername(String username) {
         return userDao.findByUsername(username);
     }
+
+    public int updateAccountStatus(long id, int newStatus) {
+        return userDao.updateAccountStatus(id, newStatus);
+    }
 }

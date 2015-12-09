@@ -19,10 +19,17 @@
     <insert id="insert" parameterType="cn.sse.bupt.model.UserModel">
         insert into tb_user (username, nickname, password, email, phone, address, user_type)
         values (#{username}, #{nickname}, #{password}, #{email}, #{phone}, #{address}, #{userType})
+        <selectKey resultType="java.lang.Long" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     </insert>
 
     <select id="findByUsername" resultMap="resultMap">
         select <include refid="columnList"/>
         from tb_user where username = #{username}
     </select>
+
+    <update id="updateAccountStatus">
+        update tb_user set account_status = #{accountStatus} WHERE id = #{id}
+    </update>
  </mapper>
