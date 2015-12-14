@@ -5,6 +5,8 @@ import cn.sse.bupt.repository.dao.NoticeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by hao.yan on 2015/12/11.
  */
@@ -26,7 +28,7 @@ public class NoticeRepository {
         return noticeDao.updateNoticeStatusAndUpdateUidById(id, updateUid, newStatus);
     }
 
-    public NoticeModel findByUid(int uid) {
-        return noticeDao.findByUid(uid);
+    public List<NoticeModel> findByUid(int uid, int startId, int pageSize) {
+        return noticeDao.findByUid(uid, startId, pageSize);
     }
 }

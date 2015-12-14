@@ -49,7 +49,7 @@ public class NoticeServiceTest {
 
     @Test
     public void testFindNoticeByUid() {
-        Assert.assertNotNull(noticeService.findNoticeByUid(updateUid));
+        Assert.assertNotNull(noticeService.findNoticeByUid(updateUid, 1, 20));
     }
 
 }

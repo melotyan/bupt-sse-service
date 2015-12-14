@@ -7,6 +7,8 @@ import cn.sse.bupt.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by hao.yan on 2015/12/11.
  */
@@ -32,7 +34,7 @@ public class NoticeServiceIml implements NoticeService {
     }
 
     @Override
-    public NoticeModel findNoticeByUid(int uid) {
-        return noticeRepository.findByUid(uid);
+    public List<NoticeModel> findNoticeByUid(int uid, int startId, int pageSize) {
+        return noticeRepository.findByUid(uid, startId, pageSize);
     }
 }
