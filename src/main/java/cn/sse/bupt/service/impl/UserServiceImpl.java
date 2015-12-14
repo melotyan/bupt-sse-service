@@ -1,8 +1,9 @@
-package cn.sse.bupt.service;
+package cn.sse.bupt.service.impl;
 
 import cn.sse.bupt.enums.AccountStatusEnum;
 import cn.sse.bupt.model.UserModel;
 import cn.sse.bupt.repository.UserRepository;
+import cn.sse.bupt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public long register(UserModel userModel) {
+    public int register(UserModel userModel) {
         return userRepository.insert(userModel);
     }
 
@@ -38,7 +39,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int activeAccount(long uid) {
+    public int activeAccount(int uid) {
         return userRepository.updateAccountStatus(uid, AccountStatusEnum.ACTIVITATED.getValue());
+    }
+
+    @Override
+    public boolean isActivated(String username) {
+        UserModel userModel = userRepository.findByUsername(username);
+        if (userModel == null)
+            return false;
+        if (userModel.getAccountStatus() != AccountStatusEnum.ACTIVITATED.getValue())
+            return false;
+        return true;
+    }
+
+    @Override
+    public UserModel findUserByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }

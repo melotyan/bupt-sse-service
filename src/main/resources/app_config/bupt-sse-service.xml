@@ -9,7 +9,7 @@
 
        <!--<context:annotation-config/>-->
        <context:component-scan base-package="cn.sse.bupt.repository"/>
-       <context:component-scan base-package="cn.sse.bupt.service"/>
+       <context:component-scan base-package="cn.sse.bupt.service.impl"/>
 
        <context:property-placeholder location="classpath:mybatis_config/mybatis.properties" />
        <!--建立JNDI数据源-->
