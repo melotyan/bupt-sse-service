@@ -39,8 +39,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int activeAccount(int uid) {
-        return userRepository.updateAccountStatus(uid, AccountStatusEnum.ACTIVITATED.getValue());
+    public int activeAccount(int id) {
+        return userRepository.updateAccountStatus(id, AccountStatusEnum.ACTIVITATED.getValue());
     }
 
     @Override
@@ -56,5 +56,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserModel findUserByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public UserModel findUserById(int id) {
+        return userRepository.findById(id);
     }
 }

@@ -24,4 +24,8 @@ public class UserRepository {
     public int updateAccountStatus(int id, int newStatus) {
         return userDao.updateAccountStatus(id, newStatus);
     }
+
+    public UserModel findById(int id) {
+        return userDao.findById(id);
+    }
 }

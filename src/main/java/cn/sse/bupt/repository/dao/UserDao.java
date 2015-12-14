@@ -13,4 +13,6 @@ public interface UserDao {
     public UserModel findByUsername(@Param("username") String username);
 
     public int updateAccountStatus(@Param("id") int id, @Param("newStatus") int newStatus);
+
+    public UserModel findById(@Param("id") int id);
 }

@@ -35,4 +35,8 @@
     <update id="updateAccountStatus">
         update tb_user set account_status=#{newStatus} WHERE id=#{id}
     </update>
+
+    <select id="findById" resultMap="resultMap">
+        select <include refid="columnList"/> from tb_user where id=#{id}
+    </select>
  </mapper>

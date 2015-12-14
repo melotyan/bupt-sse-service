@@ -71,4 +71,8 @@ public class UserServiceTest {
         Assert.assertNotNull(userService.findUserByUsername(username));
     }
 
+    @Test
+    public void testFindById() {
+        Assert.assertNotNull(userService.findUserById(uid));
+    }
 }
