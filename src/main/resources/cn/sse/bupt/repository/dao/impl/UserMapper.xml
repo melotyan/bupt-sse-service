@@ -39,4 +39,9 @@
     <select id="findById" resultMap="resultMap">
         select <include refid="columnList"/> from tb_user where id=#{id}
     </select>
+
+    <update id="updateUserModelById" parameterType="cn.sse.bupt.model.UserModel">
+        update tb_user set email=#{email}, phone=#{phone}, nickname=#{nickname},
+        address=#{address},password=#{password} where id=#{id}
+    </update>
  </mapper>

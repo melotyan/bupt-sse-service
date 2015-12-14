@@ -75,4 +75,11 @@ public class UserServiceTest {
     public void testFindById() {
         Assert.assertNotNull(userService.findUserById(uid));
     }
+
+    @Test
+    public void testUpdateUserInfo() {
+        userModel = userService.findUserById(uid);
+        userModel.setPhone("555555");
+        Assert.assertTrue(userService.updateUserInfo(userModel) > 0);
+    }
 }

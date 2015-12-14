@@ -28,4 +28,8 @@ public class UserRepository {
     public UserModel findById(int id) {
         return userDao.findById(id);
     }
+
+    public int updateUserModelById(UserModel userModel) {
+        return userDao.updateUserModelById(userModel);
+    }
 }

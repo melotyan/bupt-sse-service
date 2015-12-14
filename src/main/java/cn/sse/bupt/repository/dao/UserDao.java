@@ -15,4 +15,6 @@ public interface UserDao {
     public int updateAccountStatus(@Param("id") int id, @Param("newStatus") int newStatus);
 
     public UserModel findById(@Param("id") int id);
+
+    public int updateUserModelById(UserModel userModel);
 }
