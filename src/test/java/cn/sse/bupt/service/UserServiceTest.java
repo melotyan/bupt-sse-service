@@ -26,7 +26,7 @@ public class UserServiceTest {
     private UserService userService;
 
     private UserModel userModel = new UserModel();
-    private String username = "yanhao7";
+    private String username = "yanhao";
     private String password = "12345";
     private int uid = 9;
 
@@ -43,6 +43,7 @@ public class UserServiceTest {
         userModel.setNickname("yanhao");
         userModel.setAddress("address");
         uid = userService.register(userModel);
+        System.out.println(userModel.getId());
         Assert.assertTrue(uid > 0);
     }
 

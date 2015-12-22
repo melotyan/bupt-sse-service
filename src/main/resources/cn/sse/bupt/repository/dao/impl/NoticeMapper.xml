@@ -16,6 +16,9 @@
     </sql>
 
     <insert id="insert" parameterType="cn.sse.bupt.model.NoticeModel">
+        <selectKey resultType="java.lang.Integer" keyProperty="id">
+            select LAST_INSERT_ID();
+        </selectKey>
         insert into tb_notice (uid, update_uid, title, content, notice_status, create_time) values
         (#{uid}, #{updateUid}, #{title}, #{content}, #{noticeStatus}, #{createTime})
     </insert>

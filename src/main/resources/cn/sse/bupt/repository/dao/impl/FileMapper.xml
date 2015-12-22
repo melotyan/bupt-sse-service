@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sse.bupt.repository.dao.FileDao">
+    <resultMap id="resultMap" type="cn.sse.bupt.model.FileModel">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="nid" column="nid" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="save" parameterType="cn.sse.bupt.model.FileModel">
+        insert into tb_file (nid, title, url) values (#{nid}, #{title}, #{url})
+        <selectKey resultType="java.lang.Integer" keyProperty="id">
+            select LAST_INSERT_ID();
+        </selectKey>
+    </insert>
+
+    <select id="selectByNid" resultMap="resultMap">
+        select id, nid, title, url from tb_file where nid=#{nid}
+    </select>
+
+    <delete id="deleteById">
+        delete from tb_file where id=#{id}
+    </delete>
+
+</mapper>
