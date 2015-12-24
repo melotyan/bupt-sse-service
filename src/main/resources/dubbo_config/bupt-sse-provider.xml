@@ -9,6 +9,7 @@
 
        <dubbo:provider timeout="10000" threadpool="fixed" threads="50" dispatcher="all"/>
 
+       <!-- 声明需要暴露的服务接口 -->
        <dubbo:service interface="cn.sse.bupt.service.UserService" ref="userService"/>
        <dubbo:service interface="cn.sse.bupt.service.NoticeService" ref="noticeService"/>
        <dubbo:service interface="cn.sse.bupt.service.FileService" ref="fileService"/>
