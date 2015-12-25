@@ -4,6 +4,8 @@ import cn.sse.bupt.enums.AccountStatusEnum;
 import cn.sse.bupt.model.UserModel;
 import cn.sse.bupt.repository.UserRepository;
 import cn.sse.bupt.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
+    private final static Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserRepository userRepository;
 
@@ -22,6 +26,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(String username, String password) {
+        LOGGER.info("{} login", username);
         UserModel userModel = userRepository.findByUsername(username);
         if (userModel != null)
             return password.equals(userModel.getPassword());
