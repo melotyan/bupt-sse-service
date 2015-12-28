@@ -21,9 +21,6 @@
         </encoder>
     </appender>
 
-    <logger name="com.alibaba.dubbo" level="info" additivity="false">
-        <appender-ref ref="mainAppender"></appender-ref>
-    </logger>
     <!--具体的日志配置-->
     <root>
         <level value="info"/>

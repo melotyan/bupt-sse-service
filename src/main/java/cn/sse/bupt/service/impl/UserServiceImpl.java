@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(String username, String password) {
-        LOGGER.info("{} login", username);
         UserModel userModel = userRepository.findByUsername(username);
         if (userModel != null)
             return password.equals(userModel.getPassword());
@@ -60,6 +59,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserModel findUserByUsername(String username) {
+        LOGGER.info("find user :{}", username);
         return userRepository.findByUsername(username);
     }
 
