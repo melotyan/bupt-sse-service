@@ -23,6 +23,9 @@
               <property name="poolMaximumIdleConnections" value="${poolMaximumIdleConnections}"/>
               <property name="poolMaximumCheckoutTime" value="${poolMaximumCheckoutTime}"/>
               <property name="poolTimeToWait" value="${poolTimeToWait}"/>
+              <property name="poolPingEnabled" value="${poolPingEnabled}"/>
+              <property name="poolPingQuery" value="${poolPingQuery}"/>
+              <property name="poolPingConnectionsNotUsedFor" value="${poolPingConnectionsNotUsedFor}"/>
        </bean>
 
        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
