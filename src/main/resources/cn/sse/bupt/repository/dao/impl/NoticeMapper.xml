@@ -7,20 +7,21 @@
         <result column="update_uid" property="updateUid" jdbcType="INTEGER"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="file_urls" property="fileUrls" jdbcType="VARCHAR"/>
         <result column="notice_status" property="noticeStatus" jdbcType="TINYINT"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="columnList">
-        id, uid, update_uid, title, content, notice_status, create_time, update_time
+        id, uid, update_uid, title, content, file_urls, notice_status, create_time, update_time
     </sql>
 
     <insert id="insert" parameterType="cn.sse.bupt.model.NoticeModel">
         <selectKey resultType="java.lang.Integer" keyProperty="id">
             select LAST_INSERT_ID();
         </selectKey>
-        insert into tb_notice (uid, update_uid, title, content, notice_status, create_time) values
-        (#{uid}, #{updateUid}, #{title}, #{content}, #{noticeStatus}, #{createTime})
+        insert into tb_notice (uid, update_uid, title, content, file_urls, notice_status, create_time) values
+        (#{uid}, #{updateUid}, #{title}, #{content}, #{fileUrls}, #{noticeStatus}, #{createTime})
     </insert>
 
     <update id="updateTitleAndContentById">
