@@ -24,11 +24,19 @@ public class NoticeRepository {
         return noticeDao.updateTitleAndContentById(id, updateUid, title, content);
     }
 
-    public int updateNoticeStatusAndUpdateUidById(int id, int updateUid, int newStatus) {
-        return noticeDao.updateNoticeStatusAndUpdateUidById(id, updateUid, newStatus);
+    public int deleteById(int id) {
+        return noticeDao.deleteById(id);
     }
 
     public List<NoticeModel> findByUid(int uid, int startId, int pageSize) {
         return noticeDao.findByUid(uid, startId, pageSize);
+    }
+
+    public NoticeModel findById(int id) {
+        return noticeDao.findById(id);
+    }
+
+    public List<NoticeModel> listByOffsetAndSize(int offset, int pageSize) {
+        return noticeDao.listByOffsetAndSize(offset, pageSize);
     }
 }

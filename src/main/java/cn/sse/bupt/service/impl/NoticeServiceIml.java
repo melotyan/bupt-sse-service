@@ -29,12 +29,22 @@ public class NoticeServiceIml implements NoticeService {
     }
 
     @Override
-    public int deleteNotice(int id, int updateUid) {
-        return noticeRepository.updateNoticeStatusAndUpdateUidById(id, updateUid, NoticeStatusEnum.DELETED.getValue());
+    public int deleteNotice(int id) {
+        return noticeRepository.deleteById(id);
     }
 
     @Override
     public List<NoticeModel> findNoticeByUid(int uid, int startId, int pageSize) {
         return noticeRepository.findByUid(uid, startId, pageSize);
+    }
+
+    @Override
+    public NoticeModel findNoticeById(int id) {
+        return noticeRepository.findById(id);
+    }
+
+    @Override
+    public List<NoticeModel> listNotice(int offset, int pageSize) {
+        return noticeRepository.listByOffsetAndSize(offset, pageSize);
     }
 }

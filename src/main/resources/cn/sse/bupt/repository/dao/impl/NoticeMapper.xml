@@ -34,8 +34,15 @@
         id >= #{startId} limit #{pageSize}
     </select>
 
-    <update id="updateNoticeStatusAndUpdateUidById">
-        update tb_notice set notice_status=#{newStatus} and update_uid=#{updateUid} WHERE id=#{id}
-    </update>
+    <delete id="deleteById">
+        delete from tb_notice where id=#{id}
+    </delete>
 
+    <select id="findById" resultMap="cn.sse.bupt.model.NoticeModel">
+        select <include refid="columnList"/> from tb_notice where id=#{id}
+    </select>
+
+    <select id="listByOffsetAndSize" resultMap="cn.sse.bupt.model.NoticeModel">
+        select <include refid="columnList"/> from tb_notice where
+    </select>
 </mapper>

@@ -16,5 +16,9 @@ public interface NoticeDao {
 
     public List<NoticeModel> findByUid(@Param("uid") int uid, @Param("startId") int startId, @Param("pageSize") int pageSize);
 
-    public int updateNoticeStatusAndUpdateUidById(@Param("id") int id, @Param("updateUid") int updateUid, @Param("newStatus") int newStatus);
+    public int deleteById(@Param("id") int id);
+
+    public NoticeModel findById(@Param("id") int id);
+
+    public List<NoticeModel> listByOffsetAndSize(@Param("offset") int offset, @Param("pageSize") int pageSize);
 }
