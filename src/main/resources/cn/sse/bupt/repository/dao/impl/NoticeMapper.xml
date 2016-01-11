@@ -38,11 +38,11 @@
         delete from tb_notice where id=#{id}
     </delete>
 
-    <select id="findById" resultMap="cn.sse.bupt.model.NoticeModel">
+    <select id="findById" resultMap="resultMap">
         select <include refid="columnList"/> from tb_notice where id=#{id}
     </select>
 
-    <select id="listByOffsetAndSize" resultMap="cn.sse.bupt.model.NoticeModel">
-        select <include refid="columnList"/> from tb_notice where
+    <select id="listByOffsetAndSize" resultMap="resultMap">
+        select <include refid="columnList"/> from tb_notice limit #{offset}, #{pageSize}
     </select>
 </mapper>

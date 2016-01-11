@@ -44,7 +44,7 @@ public class NoticeServiceTest {
 
     @Test
     public void testDeleteNotice() {
-        Assert.assertTrue(noticeService.deleteNotice(id, updateUid) > 0);
+        Assert.assertTrue(noticeService.deleteNotice(id) > 0);
     }
 
     @Test
@@ -52,4 +52,13 @@ public class NoticeServiceTest {
         Assert.assertNotNull(noticeService.findNoticeByUid(updateUid, 1, 20));
     }
 
+    @Test
+    public void testFindNoticeById() {
+        Assert.assertNotNull(noticeService.findNoticeById(2));
+    }
+
+    @Test
+    public void testListNotice() {
+        Assert.assertNotNull(noticeService.listNotice(0, 100));
+    }
 }
