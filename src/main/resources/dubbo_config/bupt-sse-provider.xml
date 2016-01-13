@@ -13,4 +13,5 @@
        <dubbo:service interface="cn.sse.bupt.service.UserService" ref="userService"/>
        <dubbo:service interface="cn.sse.bupt.service.NoticeService" ref="noticeService"/>
        <dubbo:service interface="cn.sse.bupt.service.FileService" ref="fileService"/>
+       <dubbo:service interface="cn.sse.bupt.service.SuggestionService" ref="suggestionService"/>
 </beans>
