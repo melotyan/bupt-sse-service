@@ -148,6 +148,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!--以下这三个，在本地跑测试用例的时候，需要注释掉，放在线上的时候，才需要！-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
