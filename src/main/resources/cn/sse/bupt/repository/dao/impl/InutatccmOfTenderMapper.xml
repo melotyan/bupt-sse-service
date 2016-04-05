@@ -28,4 +28,8 @@
     <select id="listByCreateDateDesc" resultMap="resultMap">
         select <include refid="columeList"/> from tb_inutatccm_of_tender limit #{start}, #{size}
     </select>
+
+    <select id="selectById" resultMap="resultMap">
+        select <include refid="columeList"/> from tb_inutatccm_of_tender where id=#{id}
+    </select>
 </mapper>

@@ -27,6 +27,10 @@ public class InutatccmOfTenderRepository {
         return inutatccmOfTenderDao.deleteById(id);
     }
 
+    public InutatccmOfTenderModel selectById(int id) {
+        return inutatccmOfTenderDao.selectById(id);
+    }
+
     public List<InutatccmOfTenderModel> listByCreateDateDesc(int start, int size) {
         return inutatccmOfTenderDao.listByCreateDateDesc(start, size);
     }

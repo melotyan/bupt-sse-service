@@ -43,6 +43,10 @@ public class InutatccmOfTenderServiceTest {
     }
 
     @Test
+    public void testViewDetail() {
+        Assert.assertNotNull(inutatccmOfTenderService.viewTenderDetail(2));
+    }
+    @Test
     public void testDeleteTenderInfo() {
         Assert.assertTrue(inutatccmOfTenderService.deleteTenderInfo(1) > 0);
     }

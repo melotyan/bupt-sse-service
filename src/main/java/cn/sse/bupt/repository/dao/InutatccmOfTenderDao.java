@@ -15,5 +15,7 @@ public interface InutatccmOfTenderDao {
 
     public int deleteById(@Param("id") int id);
 
+    public InutatccmOfTenderModel selectById(@Param("id") int id);
+
     public List<InutatccmOfTenderModel> listByCreateDateDesc(@Param("start") int start, @Param("size") int size);
 }

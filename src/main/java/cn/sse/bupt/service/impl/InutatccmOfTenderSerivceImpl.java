@@ -32,6 +32,11 @@ public class InutatccmOfTenderSerivceImpl implements InutatccmOfTenderService {
     }
 
     @Override
+    public InutatccmOfTenderModel viewTenderDetail(int id) {
+        return inutatccmOfTenderRepository.selectById(id);
+    }
+
+    @Override
     public List<InutatccmOfTenderModel> listTenderInfos(int page, int pageSize) {
         int start = (page - 1) * pageSize;
         return inutatccmOfTenderRepository.listByCreateDateDesc(start, pageSize);
