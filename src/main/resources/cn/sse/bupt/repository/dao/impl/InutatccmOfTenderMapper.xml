@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sse.bupt.repository.dao.InutatccmOfTenderDao">
+    <resultMap id="resultMap" type="cn.sse.bupt.model.InutatccmOfTenderModel">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <id property="title" column="title" jdbcType="VARCHAR"/>
+        <id property="content" column="content" jdbcType="VARCHAR"/>
+        <id property="fileUrl" column="file_url" jdbcType="VARCHAR"/>
+        <id property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="columeList">
+        id, title, content, file_url, create_date
+    </sql>
+
+    <insert id="insert" parameterType="cn.sse.bupt.model.InutatccmOfTenderModel">
+        insert into tb_inutatccm_of_tender (title, content, file_url) values(#{title}, #{content}, #{fileUrl})
+    </insert>
+
+    <update id="updateById">
+        update tb_inutatccm_of_tender set title=#{title}, content=#{content}, file_url=#{fileUrl} where id=#{id}
+    </update>
+
+    <delete id="deleteById">
+        delete from tb_inutatccm_of_tender where id=#{id}
+    </delete>
+
+    <select id="listByCreateDateDesc" resultMap="resultMap">
+        select <include refid="columeList"/> from tb_inutatccm_of_tender limit #{start}, #{size}
+    </select>
+</mapper>
