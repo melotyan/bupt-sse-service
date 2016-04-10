@@ -3,18 +3,19 @@
 <mapper namespace="cn.sse.bupt.repository.dao.InutatccmOfTenderDao">
     <resultMap id="resultMap" type="cn.sse.bupt.model.InutatccmOfTenderModel">
         <id property="id" column="id" jdbcType="INTEGER"/>
-        <id property="title" column="title" jdbcType="VARCHAR"/>
-        <id property="content" column="content" jdbcType="VARCHAR"/>
-        <id property="fileUrl" column="file_url" jdbcType="VARCHAR"/>
-        <id property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="fileUrl" column="file_url" jdbcType="VARCHAR"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="columeList">
-        id, title, content, file_url, create_date
+        id, uid, title, content, file_url, create_date
     </sql>
 
     <insert id="insert" parameterType="cn.sse.bupt.model.InutatccmOfTenderModel">
-        insert into tb_inutatccm_of_tender (title, content, file_url) values(#{title}, #{content}, #{fileUrl})
+        insert into tb_inutatccm_of_tender (uid, title, content, file_url) values(#{uid}, #{title}, #{content}, #{fileUrl})
     </insert>
 
     <update id="updateById">
