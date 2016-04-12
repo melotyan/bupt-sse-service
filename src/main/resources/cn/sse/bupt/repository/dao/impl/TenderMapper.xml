@@ -16,4 +16,8 @@
     <select id="selectByTid" resultMap="resultMap">
         select id, uid, tid, title, file_url from tb_tender where tid=#{tid}
     </select>
+
+    <select id="selectByUid" resultMap="resultMap">
+        select id, uid, tid, title, file_url from tb_tender where uid=#{uid}
+    </select>
 </mapper>

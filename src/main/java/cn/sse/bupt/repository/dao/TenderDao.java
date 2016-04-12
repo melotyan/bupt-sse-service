@@ -12,4 +12,6 @@ public interface TenderDao {
     public int insert(@Param("uid") int uid, @Param("tid") int tid, @Param("title") String title, @Param("fileUrl") String fileUrl);
 
     public List<TenderModel> selectByTid(@Param("tid") int tid);
+
+    public List<TenderModel> selectByUid(@Param("uid") int uid);
 }

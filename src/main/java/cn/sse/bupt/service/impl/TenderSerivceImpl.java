@@ -25,4 +25,9 @@ public class TenderSerivceImpl implements TenderService {
     public List<TenderModel> listTenderByTid(int tid) {
         return tenderRepository.selectByTid(tid);
     }
+
+    @Override
+    public List<TenderModel> listTenderByUid(int uid) {
+        return tenderRepository.selectByUid(uid);
+    }
 }

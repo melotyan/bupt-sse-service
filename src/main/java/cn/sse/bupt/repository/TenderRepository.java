@@ -22,4 +22,8 @@ public class TenderRepository {
     public List<TenderModel> selectByTid(int tid) {
         return tenderDao.selectByTid(tid);
     }
+
+    public List<TenderModel> selectByUid(int uid) {
+        return tenderDao.selectByUid(uid);
+    }
 }
