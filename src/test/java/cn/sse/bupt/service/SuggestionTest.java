@@ -45,7 +45,7 @@ public class SuggestionTest {
 
     @Test
     public void testListSuggestions() {
-        Assert.assertNotNull(suggestionService.listSuggestions(0, 100));
+        Assert.assertNotNull(suggestionService.listSuggestionsByType(0, 0, 100));
     }
 
     @Test
