@@ -33,8 +33,8 @@
         delete from tb_suggestion where id=#{id}
     </delete>
     
-    <select id="listByOffsetAndSize" resultMap="resultMap">
-        select <include refid="sql"/> from tb_suggestion order by id desc limit #{offset}, #{size}
+    <select id="listByTypeAndOffsetAndSize" resultMap="resultMap">
+        select <include refid="sql"/> from tb_suggestion where type=#{type} order by id desc limit #{offset}, #{size}
     </select>
 
 </mapper>

@@ -37,8 +37,8 @@ public class SuggestionServiceImpl implements SuggestionService {
     }
 
     @Override
-    public List<SuggestionModel> listSuggestions(int offset, int pageSize) {
-        return suggestionRepository.listByOffsetAndSize(offset, pageSize);
+    public List<SuggestionModel> listSuggestionsByType(int type, int offset, int pageSize) {
+        return suggestionRepository.listByTypeAndOffsetAndSize(type, offset, pageSize);
     }
 
 

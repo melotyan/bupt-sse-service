@@ -17,5 +17,5 @@ public interface SuggestionDao {
 
     public int deleteById(@Param("id") int id);
 
-    public List<SuggestionModel> listByOffsetAndSize(@Param("offset") int offset, @Param("size") int size);
+    public List<SuggestionModel> listByTypeAndOffsetAndSize(@Param("type") int type, @Param("offset") int offset, @Param("size") int size);
 }

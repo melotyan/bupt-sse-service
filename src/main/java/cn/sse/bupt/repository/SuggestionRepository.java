@@ -27,8 +27,8 @@ public class SuggestionRepository {
         return suggestionDao.deleteById(id);
     }
 
-    public List<SuggestionModel> listByOffsetAndSize(int offset, int size) {
-        return suggestionDao.listByOffsetAndSize(offset, size);
+    public List<SuggestionModel> listByTypeAndOffsetAndSize(int type, int offset, int size) {
+        return suggestionDao.listByTypeAndOffsetAndSize(type, offset, size);
     }
 
     public SuggestionModel findById(int id) {
