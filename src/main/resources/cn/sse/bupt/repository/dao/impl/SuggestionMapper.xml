@@ -6,16 +6,17 @@
         <result column="uid" property="uid" jdbcType="INTEGER"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="INTEGER"/>
         <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
         <result column="update_date" property="updateDate" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="sql">
-        id, uid, title, content, create_date, update_date
+        id, uid, title, type, content, create_date, update_date
     </sql>
 
     <insert id="insert" parameterType="cn.sse.bupt.model.SuggestionModel">
-        insert into tb_suggestion (uid, title, content, create_date) values (#{uid}, #{title}, #{content}, #{createDate})
+        insert into tb_suggestion (uid, type, title, content, create_date) values (#{uid}, #{type}, #{title}, #{content}, #{createDate})
         <selectKey keyProperty="id" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
