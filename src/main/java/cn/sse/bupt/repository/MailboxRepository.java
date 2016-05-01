@@ -4,12 +4,14 @@ import cn.sse.bupt.model.MailboxModel;
 import cn.sse.bupt.repository.dao.MailboxDao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by melot on 2016/5/1.
  */
+@Repository("mailboxRepository")
 public class MailboxRepository {
     @Autowired
     private MailboxDao mailboxDao;
@@ -30,8 +32,8 @@ public class MailboxRepository {
         return mailboxDao.updateReceiverStatusById(id, newStatus);
     }
 
-    public List<MailboxModel> selectBySenderName(String senderName) {
-        return mailboxDao.selectBySenderName(senderName);
+    public List<MailboxModel> selectBySenderNameAndSenderStatus(String senderName, int senderStatus) {
+        return mailboxDao.selectBySenderNameAndSenderStatus(senderName, senderStatus);
     }
 
     public List<MailboxModel> selectByReceiverName(String receivername) {

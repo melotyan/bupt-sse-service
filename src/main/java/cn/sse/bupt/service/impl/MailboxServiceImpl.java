@@ -6,12 +6,14 @@ import cn.sse.bupt.model.MailboxModel;
 import cn.sse.bupt.repository.MailboxRepository;
 import cn.sse.bupt.service.MailboxService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by melot on 2016/5/1.
  */
+@Service("mailboxService")
 public class MailboxServiceImpl implements MailboxService {
     @Autowired
     private MailboxRepository mailboxRepository;
@@ -28,6 +30,7 @@ public class MailboxServiceImpl implements MailboxService {
 
     @Override
     public int saveDraft(MailboxModel mailboxModel) {
+        mailboxModel.setSenderStatus(SenderStatusEnum.DRAFT.getValue());
         return mailboxRepository.save(mailboxModel);
     }
 
@@ -48,9 +51,13 @@ public class MailboxServiceImpl implements MailboxService {
 
     @Override
     public List<MailboxModel> viewOutbox(String sender) {
-        return mailboxRepository.selectBySenderName(sender);
+        return mailboxRepository.selectBySenderNameAndSenderStatus(sender, SenderStatusEnum.SENDED.getValue());
     }
 
+    @Override
+    public List<MailboxModel> viewDrafts(String sender) {
+        return mailboxRepository.selectBySenderNameAndSenderStatus(sender, SenderStatusEnum.DRAFT.getValue());
+    }
     @Override
     public int deleteSendedMail(int id) {
         return mailboxRepository.updateSenderStatusById(id, SenderStatusEnum.DELETED.getValue());

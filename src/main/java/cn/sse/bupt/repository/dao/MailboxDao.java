@@ -17,7 +17,7 @@ public interface MailboxDao {
 
     public int updateReceiverStatusById(@Param("id") int id, @Param("newStatus") int newStatus);
 
-    public List<MailboxModel> selectBySenderName(@Param("senderName") String senderName);
+    public List<MailboxModel> selectBySenderNameAndSenderStatus(@Param("senderName") String senderName, @Param("senderStatus") int senderStatus);
 
     public List<MailboxModel> selectByReceiverName(@Param("receiverName") String receivername);
 

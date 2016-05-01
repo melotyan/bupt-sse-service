@@ -23,7 +23,7 @@
     </insert>
 
     <update id="updateSenderStatusById">
-        update tb_mailbox set sender_status = #{senderStatus} where id=#{id}
+        update tb_mailbox set sender_status = #{newStatus} where id=#{id}
     </update>
 
     <select id="selectById" resultMap="resultMap">
@@ -31,14 +31,15 @@
     </select>
 
     <update id="updateReceiverStatusById">
-        update tb_mailbox set receiver_status = #{receiverStatus} where id=#{id}
+        update tb_mailbox set receiver_status = #{newStatus} where id=#{id}
     </update>
 
-    <select id="selectBySenderName">
-        select <include refid="columns"/> from tb_mailbox where sender_name=#{senderName}
+    <select id="selectBySenderNameAndSenderStatus" resultMap="resultMap">
+        select <include refid="columns"/> from tb_mailbox where sender_name=#{senderName} and sender_status = #{senderStatus}
     </select>
 
-    <select id="selectByReceiverName">
-        select <include refid="columns"/> from tb_mailbox where receiver_name=#{receiverName}
+    <select id="selectByReceiverName" resultMap="resultMap">
+        select <include refid="columns"/> from tb_mailbox where receiver_name=#{receiverName} and receiver_status != 2
+        and sender_status != 1
     </select>
 </mapper>

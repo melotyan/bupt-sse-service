@@ -17,4 +17,5 @@
        <dubbo:service interface="cn.sse.bupt.service.InutatccmOfTenderService" ref="inutatccmOfTenderService"/>
        <dubbo:service interface="cn.sse.bupt.service.TenderService" ref="tenderService"/>
        <dubbo:service interface="cn.sse.bupt.service.NewsService" ref="newsService"/>
+       <dubbo:service interface="cn.sse.bupt.service.MailboxService" ref="mailboxService"/>
 </beans>
