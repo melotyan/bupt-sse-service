@@ -67,4 +67,10 @@ public class MailboxServiceImpl implements MailboxService {
     public int deleteReceivedMail(int id) {
         return mailboxRepository.updateReceiverStatusById(id, ReceiverStatusEnum.DELETED.getValue());
     }
+
+    @Override
+    public int editDraft(int id, String receiver, String title, String content) {
+        return mailboxRepository.updateById(id, receiver, title, content);
+    }
+
 }

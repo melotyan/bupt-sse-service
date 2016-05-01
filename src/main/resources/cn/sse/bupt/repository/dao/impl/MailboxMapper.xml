@@ -42,4 +42,8 @@
         select <include refid="columns"/> from tb_mailbox where receiver_name=#{receiverName} and receiver_status != 2
         and sender_status != 1
     </select>
+
+    <update id="updateById">
+        update tb_mailbox set receiver_name=#{receiver}, title=#{title}, content=#{content} where id=#{id}
+    </update>
 </mapper>

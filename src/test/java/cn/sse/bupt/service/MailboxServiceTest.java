@@ -79,6 +79,9 @@ public class MailboxServiceTest {
         Assert.assertTrue(mailboxService.deleteReceivedMail(1) > 0);
     }
 
-
+    @Test
+    public void testEditDraft() {
+        Assert.assertTrue(mailboxService.editDraft(2, "receiver", "normal-title", "content") > 0);
+    }
 
 }

@@ -21,4 +21,6 @@ public interface MailboxDao {
 
     public List<MailboxModel> selectByReceiverName(@Param("receiverName") String receivername);
 
+    public int updateById(@Param("id") int id, @Param("receiver") String receiver, @Param("title") String title, @Param("content") String content);
+
 }

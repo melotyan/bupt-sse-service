@@ -40,4 +40,8 @@ public class MailboxRepository {
         return mailboxDao.selectByReceiverName(receivername);
     }
 
+    public int updateById(int id, String receiver, String title, String content) {
+        return mailboxDao.updateById(id, receiver, title, content);
+    }
+
 }
