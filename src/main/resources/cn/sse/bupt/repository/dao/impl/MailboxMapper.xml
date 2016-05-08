@@ -23,7 +23,7 @@
     </insert>
 
     <update id="updateSenderStatusById">
-        update tb_mailbox set sender_status = #{newStatus} where id=#{id}
+        update tb_mailbox set sender_status = #{newStatus}, send_time = now() where id=#{id}
     </update>
 
     <select id="selectById" resultMap="resultMap">
@@ -35,12 +35,12 @@
     </update>
 
     <select id="selectBySenderNameAndSenderStatus" resultMap="resultMap">
-        select <include refid="columns"/> from tb_mailbox where sender_name=#{senderName} and sender_status = #{senderStatus} order by update_time desc
+        select <include refid="columns"/> from tb_mailbox where sender_name=#{senderName} and sender_status = #{senderStatus} order by send_time desc
     </select>
 
     <select id="selectByReceiverName" resultMap="resultMap">
         select <include refid="columns"/> from tb_mailbox where receiver_name=#{receiverName} and receiver_status != 2
-        and sender_status != 1 order by update_time desc
+        and sender_status != 1 order by send_time desc
     </select>
 
     <update id="updateById">
