@@ -30,7 +30,7 @@
     </delete>
 
     <update id="updateById" parameterType="cn.sse.bupt.model.NewsModel">
-        update tb_news set update_uid=#{updateUid}, title=#{title}, content=#{content}
+        update tb_news set update_uid=#{updateUid}, title=#{title}, content=#{content} where id=#{id}
     </update>
 
     <select id="selectByIdDesc" resultMap="resultMap">
