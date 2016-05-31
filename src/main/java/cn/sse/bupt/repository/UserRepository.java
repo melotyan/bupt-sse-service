@@ -36,4 +36,8 @@ public class UserRepository {
     public int updateUserTypeAnnAccountStatus(int id, int userType, int accountStatus) {
         return userDao.updateUserTypeAndAccountStatus(id, userType, accountStatus);
     }
+
+    public List<UserModel> selectAll() {
+        return userDao.selectAll();
+    }
 }

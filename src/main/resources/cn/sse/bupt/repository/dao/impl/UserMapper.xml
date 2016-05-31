@@ -48,4 +48,8 @@
     <update id="updateUserTypeAndAccountStatusById">
         update tb_user set user_type=#{userType}, account_status=#{accountStatus} where id=#{id}
     </update>
+
+    <select id="selectAll" resultMap="resultMap">
+        select <include refid="columnList"/> from tb_user
+    </select>
  </mapper>

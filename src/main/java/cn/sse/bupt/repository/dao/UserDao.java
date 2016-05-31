@@ -19,4 +19,6 @@ public interface UserDao {
     public int updateUserModelById(UserModel userModel);
 
     public int updateUserTypeAndAccountStatus(int id, int userType, int accountStatus);
+
+    public List<UserModel> selectAll();
 }

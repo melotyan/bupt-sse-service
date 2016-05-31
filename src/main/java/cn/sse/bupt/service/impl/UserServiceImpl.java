@@ -77,4 +77,9 @@ public class UserServiceImpl implements UserService {
     public int manageUser(int id, int userType, int accountStatus) {
         return userRepository.updateUserTypeAndAccountStatusById(id, userType, accountStatus);
     }
+
+    @Override
+    public List<UserModel> getAllUsers() {
+        return userRepository.selectAll();
+    }
 }
