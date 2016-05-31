@@ -44,4 +44,8 @@
         update tb_user set email=#{email}, phone=#{phone}, nickname=#{nickname},
         address=#{address},password=#{password} where id=#{id}
     </update>
+
+    <update id="updateUserTypeAndAccountStatusById">
+        update tb_user set user_type=#{userType}, account_status=#{accountStatus} where id=#{id}
+    </update>
  </mapper>

@@ -72,4 +72,9 @@ public class UserServiceImpl implements UserService {
     public int updateUserInfo(UserModel userModel) {
         return userRepository.updateUserModelById(userModel);
     }
+
+    @Override
+    public int manageUser(int id, int userType, int accountStatus) {
+        return userRepository.updateUserTypeAndAccountStatusById(id, userType, accountStatus);
+    }
 }

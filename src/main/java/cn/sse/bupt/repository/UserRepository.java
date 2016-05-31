@@ -32,4 +32,8 @@ public class UserRepository {
     public int updateUserModelById(UserModel userModel) {
         return userDao.updateUserModelById(userModel);
     }
+
+    public int updateUserTypeAnnAccountStatus(int id, int userType, int accountStatus) {
+        return userDao.updateUserTypeAndAccountStatus(id, userType, accountStatus);
+    }
 }
