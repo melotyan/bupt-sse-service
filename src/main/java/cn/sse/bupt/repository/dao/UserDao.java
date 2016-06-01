@@ -3,6 +3,8 @@ package cn.sse.bupt.repository.dao;
 import cn.sse.bupt.model.UserModel;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * Created by hao.yan on 2015/12/1.
  */

@@ -5,6 +5,8 @@ import cn.sse.bupt.repository.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by hao.yan on 2015/12/1.
  */
@@ -33,7 +35,7 @@ public class UserRepository {
         return userDao.updateUserModelById(userModel);
     }
 
-    public int updateUserTypeAnnAccountStatus(int id, int userType, int accountStatus) {
+    public int updateUserTypeAndAccountStatusById(int id, int userType, int accountStatus) {
         return userDao.updateUserTypeAndAccountStatus(id, userType, accountStatus);
     }
 

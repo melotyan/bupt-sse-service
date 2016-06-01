@@ -23,7 +23,7 @@ public class UserServiceTest {
     private UserService userService;
 
     private UserModel userModel = new UserModel();
-    private String username = "yanhao";
+    private String username = "yanhao02";
     private String password = "12345";
     private int uid = 9;
 
