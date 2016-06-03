@@ -36,7 +36,7 @@ public class UserRepository {
     }
 
     public int updateUserTypeAndAccountStatusById(int id, int userType, int accountStatus) {
-        return userDao.updateUserTypeAndAccountStatus(id, userType, accountStatus);
+        return userDao.updateUserTypeAndAccountStatusById(id, userType, accountStatus);
     }
 
     public List<UserModel> selectAll() {
