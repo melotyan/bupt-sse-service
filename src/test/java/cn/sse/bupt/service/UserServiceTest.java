@@ -80,4 +80,10 @@ public class UserServiceTest {
         userModel.setPhone("555555");
         Assert.assertTrue(userService.updateUserInfo(userModel) > 0);
     }
+
+    @Test
+    public void testManageUser() {
+        Assert.assertTrue(userService.manageUser(59, 1, 0) > 0);
+    }
+
 }

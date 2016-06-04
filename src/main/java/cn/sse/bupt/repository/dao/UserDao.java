@@ -20,7 +20,7 @@ public interface UserDao {
 
     public int updateUserModelById(UserModel userModel);
 
-    public int updateUserTypeAndAccountStatusById(int id, int userType, int accountStatus);
+    public int updateUserTypeAndAccountStatusById(@Param("id") int id, @Param("userType") int userType, @Param("accountStatus") int accountStatus);
 
     public List<UserModel> selectAll();
 }
